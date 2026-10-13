@@ -19,3 +19,16 @@ export const numarPeTara = (list) =>
 
 // sort modifică lista pe care e aplicat, deci se sortează o copie
 export const sortDupaZile = (list) => [...list].sort((a, b) => b.zile - a.zile)
+
+// ===== Exercițiul 2: modificare fără stricarea listei inițiale =====
+
+export const marcheazaVizitat = (list, id) =>
+    list.map((d) =>
+        d.id === id
+            ? { ...d, vizitat: !d.vizitat } // element nou
+            : d,                            // element refolosit
+    )
+
+export const adaugaDestinatie = (list, d) => [...list, d]
+
+export const stergeDestinatie = (list, id) => list.filter((d) => d.id !== id)
