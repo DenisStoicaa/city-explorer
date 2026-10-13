@@ -8,6 +8,7 @@ import {
     getOrase, getNevizitate, totalZile, formatDestinatie, numarPeTara, sortDupaZile,
     marcheazaVizitat, adaugaDestinatie, stergeDestinatie,
 } from './utils/destinatii.js'
+import { fetchUsers, fetchUserById } from './api/orase.js'
 
 createRoot(document.getElementById('root')).render(
     <StrictMode>
@@ -37,3 +38,25 @@ console.log('L2 Ex. 2 - după adăugare: original', destinatii.length, ', listă
 
 const dupaStergere = stergeDestinatie(dupaAdaugare, '7')
 console.log('L2 Ex. 2 - după ștergere:', dupaStergere.length)
+
+// Exercițiul 3
+async function loadOrase() {
+    try {
+        const users = await fetchUsers()
+        console.log('L2 Ex. 3 - am primit', users.length, 'utilizatori')
+
+        const orase = users.map((user) => user.address.city)
+        console.log('L2 Ex. 3 - orașe:', orase)
+        console.log('L2 Ex. 3 - nume mai lungi de 10 caractere:', orase.filter((o) => o.length > 10).length)
+
+        // pentru punctul c) se înlocuiește temporar 1 cu 999
+        const user = await fetchUserById(1)
+        console.log('L2 Ex. 3 - orașul utilizatorului 1:', user.address.city)
+    } catch (error) {
+        console.error('L2 Ex. 3 - nu am putut încărca datele:', error.message)
+    }
+}
+
+loadOrase()
+
+// ===== Laboratorul 3 ===== (se adaugă săptămâna viitoare)
