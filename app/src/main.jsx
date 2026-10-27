@@ -58,5 +58,3 @@ async function loadOrase() {
 }
 
 loadOrase()
-
-// ===== Laboratorul 3 ===== (se adaugă săptămâna viitoare)
