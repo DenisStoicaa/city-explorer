@@ -84,3 +84,11 @@ button {
 .card.vizitat button {
     background: #1f9d55;
 }
+
+/* cerința suplimentară: butonul de ștergere, gri și pe cardul vizitat */
+.card .sterge,
+.card.vizitat .sterge {
+    margin-top: 0.4rem;
+    background: #e5e7eb;
+    color: #1f2937;
+}
